@@ -1,0 +1,56 @@
+body {
+    font-family: monospace;
+    font-size: 1.1em;
+    background: #2b2b2b;
+    padding: 1rem 2rem;
+}
+
+pre {
+    display: inline;
+    border-radius: 5px;
+}
+
+.IDENTIFIER {
+    color: yellow;
+    background-color: rgba(255, 255, 0, 0.1);
+}
+
+.KEYWORD {
+    color: tomato;
+    background-color: rgba(255, 99, 71, 0.1);
+}
+
+.OPERATOR {
+    color: turquoise;
+    background-color: rgba(64, 224, 208, 0.1);
+}
+
+.LITERAL {
+    color: darkviolet;
+    background-color: rgba(148, 0, 211, 0.1);
+}
+
+.NUMBER {
+    color: royalblue;
+    background-color: rgba(65, 105, 225, 0.1);
+}
+
+.DIRECTIVE {
+    color: pink;
+    background-color: rgba(255, 192, 203, 0.1);
+}
+
+.PUNCTUATION {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.COMMENT {
+    color: green;
+    background-color: rgba(0, 128, 0, 0.1);
+}
+
+.ERROR {
+    color: red;
+    background-color: rgba(255, 0, 0, 0.1);
+}

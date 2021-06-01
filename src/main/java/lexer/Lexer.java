@@ -13,6 +13,7 @@ import java.util.List;
 
 public class Lexer {
     private final String input;
+    private final String output;
     boolean endOfFile = false;
     State currentState = new State();
     ArrayList<Token> tokenList = new ArrayList<>();
@@ -22,8 +23,9 @@ public class Lexer {
     private IdentifierRecognizer identifierRecognizer = new IdentifierRecognizer(currentState, tokenList);
     private OperatorRecognizer operatorRecognizer = new OperatorRecognizer(currentState, tokenList);
 
-    public Lexer(String input){
+    public Lexer(String input, String output){
         this.input = input;
+        this.output = output;
         readfile();
     }
 
@@ -43,12 +45,30 @@ public class Lexer {
         endOfFile = true;
         recognize(' ');
 
-        output(tokenList);
+        output(output, tokenList);
     }
 
-    public static void output(List<Token> tokenList) {
+    public static void output(String path, List<Token> tokenList) {
+        String defaultHtml = "<html><head><link href =\"style.css\" rel=\"stylesheet\" type=\"text/css\"></head><body>";
         for (Token token : tokenList) {
-            System.out.println(token.getTokenType() + "\t\t\t\"" + token.getContent() + "\"");
+            if (token.getTokenType() == TokenType.PUNCTUATION && token.getContent().equals("\\n")) {
+                System.out.println(token.getTokenType() + "\t\t\t\"" + token.getContent() + "\"");
+                defaultHtml += "<br/>";
+            } else {
+                System.out.println(token.getTokenType() + "\t\t\t\"" + token.getContent() + "\"");
+                defaultHtml += String.format("<pre class=\"%s\">%s</pre>", token.getTokenType(), token.getContent());
+            }
+        }
+        defaultHtml += "</body></html>";
+
+        File file = new File(path);
+        FileWriter fileWriter;
+        try {
+            fileWriter = new FileWriter(file);
+            fileWriter.write(defaultHtml);
+            fileWriter.close();
+
+        } catch (IOException ignored) {
         }
     }
 
