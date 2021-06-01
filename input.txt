@@ -1,0 +1,67 @@
+program posneg;
+uses crt;
+var
+ no : integer;
+begin
+ clrscr;
+  Write('Enger a number:');
+  readln(no);
+
+  if (no > 0) then
+   writeln('You enter Positive Number')
+  else
+    if (no < 0) then
+     writeln('You enter Negative number')
+    else
+      if (no = 0) then
+      writeln('You enter Zero');
+
+  readln;
+ end.
+ 1gfjfgjgfjfgj
+ (*fdgdfgdfg*)
+ {dfgdfgdfgdfg}
+ {$fdvdfgdfg}
+ for i := 1 to 100 do
+   begin
+     WriteLn('Hello ', Name)
+   end;
+  readln;
+  i := 1.5;
+ tmp := '$0000';
+
+FUNCTION B2X(b:  BYTE):  STRING;  {byte-to-hexadecimal}
+    CONST HexDigit:  ARRAY[0..15] OF CHAR = '0123456789ABCDEF';
+  BEGIN
+    B2X :=  HexDigit[b SHR 4] + HexDigit[b AND $0F]
+  END {B2X};
+  FUNCTION C2X(s:  STRING):  STRING;  {character-to-hexadecimal}
+    VAR i:  BYTE;
+   VAR
+      t  :  STRING;
+  BEGIN
+    t := '';
+    FOR i := 1 TO LENGTH(s) DO
+      t := t + B2X( BYTE(s[i]) );
+    C2X := t
+  END {C2X};
+  FUNCTION I2X(i:  INTEGER):  STRING;           {integer-to-hexadecimal}
+  BEGIN
+    I2X := B2X(Hi(i)) + B2X(Lo(i))
+  END {I2X};
+  FUNCTION L2X(i:  LONGINT):  STRING;  {LONGINT-to-hexadecimal}
+    VAR
+      ovly:
+        RECORD
+          CASE INTEGER OF
+            0:  (j:  LONGINT);
+            1:  (w:  ARRAY[1..2] OF WORD)
+        END;
+  BEGIN
+    ovly.j := i;
+    L2X := W2X(ovly.w[1]) + W2X(ovly.w[2])
+  END {L2X};
+  FUNCTION W2X(w:  WORD):  STRING;          {word-to-hexadecimal}
+  BEGIN
+    W2X := B2X(Hi(w)) + B2X(Lo(w))
+  END {W2X};

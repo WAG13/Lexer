@@ -1,0 +1,25 @@
+package lexer.states;
+
+public enum StateType {
+    START,
+    ASSIGN,
+    MINUS,
+    MULTIPLY,
+    RELOP,
+    NUMBER,
+    NUM_E,
+    NUM_E_NEXT,
+    HEX_NUM,
+    FRACTIONAL_NUM,
+    FRACTIONAL_NUM_AFTER_DOT,
+    IDENTIFIER,
+    STRINGLITERAL,
+    ERROR,
+    IND_ERROR,
+    COMPILER_DIRECTIVE,
+    COMPILER_DIRECTIVE_NEXT,
+    COMMENT_OLD,
+    COMMENT_NEW,
+    COMMENT_NEXT,
+    COMMENT_END,
+}
